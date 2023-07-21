@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="semyontask"/>  
+  <!-- add our web resources -->  
+  <web-resource key="semyontask-resources" name="semyontask Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="semyontask.css" location="/css/semyontask.css"/>  
+    <resource type="download" name="semyontask.js" location="/js/semyontask.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>semyontask</context> 
+  </web-resource>  
+  <web-section name="Section" i18n-name-key="section.name" key="section" location="admin_plugins_menu" weight="1000"> 
+    <description key="section.description">The Section Plugin</description>  
+    <label key="section.label"/> 
+  </web-section>  
+  <web-item name="item" i18n-name-key="item.name" key="item" section="admin_plugins_menu/section" weight="1000"> 
+    <description key="item.description">The item Plugin</description>  
+    <label key="item.label"/>  
+    <link linkId="item-link">/secure/PluginAction.jspa</link>
+  </web-item>  
+  <webwork1 key="plugin" name="Plugin" i18n-name-key="plugin.name"> 
+    <description key="plugin.description">The Plugin Plugin</description>  
+    <actions> 
+      <action name="org.test.custom.plugin.jira.webwork.PluginAction" alias="PluginAction"> 
+        <view name="success">/templates/plugin/success.vm</view>  
+        <view name="input">/templates/plugin/input.vm</view>  
+        <view name="error">/templates/plugin/error.vm</view> 
+      </action> 
+    </actions> 
+  </webwork1>
+</atlassian-plugin>

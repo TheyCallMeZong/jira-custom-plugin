@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Fixed First Column Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:first-child,
+        td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Пользователь/Проект</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    $!param
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
