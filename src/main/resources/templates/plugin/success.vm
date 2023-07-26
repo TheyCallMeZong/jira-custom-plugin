@@ -1,43 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-    <title>Fixed First Column Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #dddddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        th:first-child,
-        td:first-child {
-            position: sticky;
-            left: 0;
-            z-index: 1;
-            background-color: #ffffff;
-        }
-    </style>
+    $webResourceManager.requireResource("org.test.custom.plugin.semyontask:semyontask-resources")
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Report</title>
 </head>
 <body>
-    <table>
-        <thead>
-            <th>Пользователь/Проект</th>
-        </thead>
-        <tbody>
+
+<div class="view" style="margin: auto">
+    <div class="wrapper">
+        <table class="table">
+            <thead>
             <tr>
-                <td>
-                    $!param
-                </td>
+                <th class="sticky-col first-col">Пользователь/Проект</th>
+                <th class="sticky-col second-col">Ключ</th>
+                <th class="sticky-col third-col">В системе</th>
             </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <tr>
+                #foreach($e in $users)
+                    <td class="sticky-col first-col">$e.getName()</td>
+                    #foreach($i in $users)
+                        <td class="sticky-col second-col">$i.getDirectoryId()</td>
+                    #end
+                #end
+                <td class="sticky-col third-col">Время (час)</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>

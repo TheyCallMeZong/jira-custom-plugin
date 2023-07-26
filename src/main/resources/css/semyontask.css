@@ -1,0 +1,45 @@
+.view {
+    margin: auto;
+}
+
+table {
+    border-collapse: collapse ;
+}
+
+th, td{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.wrapper {
+    position: relative;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+}
+
+.first-col {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    left: 0;
+}
+
+.second-col {
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    left: 200px;
+}
+
+.third-col{
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    left: 350px;
+}

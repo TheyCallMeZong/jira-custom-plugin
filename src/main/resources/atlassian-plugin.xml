@@ -8,9 +8,7 @@
     <param name="plugin-icon">images/pluginIcon.png</param>  
     <param name="plugin-logo">images/pluginLogo.png</param> 
   </plugin-info>  
-  <!-- add our i18n resource -->  
   <resource type="i18n" name="i18n" location="semyontask"/>  
-  <!-- add our web resources -->  
   <web-resource key="semyontask-resources" name="semyontask Web Resources"> 
     <dependency>com.atlassian.auiplugin:ajs</dependency>  
     <resource type="download" name="semyontask.css" location="/css/semyontask.css"/>  
@@ -25,7 +23,7 @@
   <web-item name="item" i18n-name-key="item.name" key="item" section="admin_plugins_menu/section" weight="1000"> 
     <description key="item.description">The item Plugin</description>  
     <label key="item.label"/>  
-    <link linkId="item-link">/secure/PluginAction.jspa</link>
+    <link linkId="item-link">/secure/PluginAction.jspa</link> 
   </web-item>  
   <webwork1 key="plugin" name="Plugin" i18n-name-key="plugin.name"> 
     <description key="plugin.description">The Plugin Plugin</description>  
@@ -36,5 +34,30 @@
         <view name="error">/templates/plugin/error.vm</view> 
       </action> 
     </actions> 
-  </webwork1>
+  </webwork1>  
+  <report name="Report Employee" i18n-name-key="report-employee.name" key="report-employee" class="org.test.custom.plugin.jira.reports.ReportEmployee"> 
+    <description key="report-employee.description">The Report Employee Plugin</description>  
+    <resource name="view" type="velocity" location="/templates/reports/report-employee/view.vm"/>  
+    <resource name="i18n" type="i18n" location="ReportEmployee"/>  
+    <label key="report-employee.label"></label>  
+    <!-- the properties of this report which the user must select before running it -->  
+    <!-- Uncomment and edit properties...
+    <properties>
+        <property>
+            <key>versionId</key>
+            <name>common.concepts.version</name>
+            <description>report.timetracking.version.description</description>
+            <type>select</type>
+            <values class="com.atlassian.jira.portal.VersionOptionalValuesGenerator"/>
+        </property>
+        <property>
+            <key>sortingOrder</key>
+            <name>report.timetracking.sortingorder</name>
+            <description>report.timetracking.sortingorder.description</description>
+            <type>select</type>
+            <values class="com.atlassian.jira.portal.SortingValuesGenerator"/>
+        </property>
+    </properties>
+    --> 
+  </report>
 </atlassian-plugin>
